@@ -11,8 +11,10 @@ import Foundation
 public enum AccessibilityIdentifiers: Equatable, CaseIterable {
     case nothing
 
-    case firstField
-    case secondField
+    case thirdField
+    case fourthField
+    case thirdSetFieldButton
+    case fourthSetFieldButton
 
     func automatedId() -> String {
         String(describing: self)

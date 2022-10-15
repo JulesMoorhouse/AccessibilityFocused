@@ -33,7 +33,7 @@ struct AccessibilityFocusSetterModifier: ViewModifier {
             content: content
                 .accessibility(identifier: accessibilityIdentifier)
         )
-        .onReceive(Just(focused)) { _ in
+        .onChange(of: focused) { _ in
             if focused == true {
                 #if targetEnvironment(simulator)
                     accessibilityIdentifier = identifier.uiTestFocusId
@@ -44,7 +44,7 @@ struct AccessibilityFocusSetterModifier: ViewModifier {
                 #endif
             }
         }
-        .onReceive(Just(AccessibilityFocusSetterModifier.currentFocusIdentifier)) { value in
+        .onChange(of: AccessibilityFocusSetterModifier.currentFocusIdentifier) { value in
             if value != identifier.accessibilityId {
                 focused = false
             }
