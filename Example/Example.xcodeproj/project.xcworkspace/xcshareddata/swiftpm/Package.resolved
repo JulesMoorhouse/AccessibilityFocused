@@ -1,0 +1,14 @@
+{
+  "pins" : [
+    {
+      "identity" : "accessibilityfocused",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/JulesMoorhouse/AccessibilityFocused",
+      "state" : {
+        "branch" : "main",
+        "revision" : "274ad999d5a359d6a14451ffd22443f67bb13cd7"
+      }
+    }
+  ],
+  "version" : 2
+}
