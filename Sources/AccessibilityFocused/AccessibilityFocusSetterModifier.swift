@@ -22,7 +22,7 @@ struct AccessibilityFocusSetterModifier: ViewModifier {
     ) {
         _focused = state
         self.identifier = identifier
-        accessibilityIdentifier = identifier.accessibilityId
+        _accessibilityIdentifier = State(wrappedValue: identifier.accessibilityId)
     }
 
     func body(content: Content) -> some View {
