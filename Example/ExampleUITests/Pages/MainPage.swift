@@ -18,10 +18,10 @@ struct MainPage: Screen {
     }
     
     private func textField3() -> XCUIElement {
-        let item = app.staticTexts[
+        let item = app.descendants(matching: .any)[
             "\(AccessibilityIdentifiers.thirdField)"
-        ].firstMatch
-        
+        ]
+
         _ = item.waitForExistence(timeout: 3.0)
         
         XCTAssertTrue(item.exists, "Field3 not found!")
@@ -30,9 +30,9 @@ struct MainPage: Screen {
     }
 
     private func textField4() -> XCUIElement {
-        let item = app.staticTexts[
+        let item = app.descendants(matching: .any)[
             "\(AccessibilityIdentifiers.fourthField)"
-        ].firstMatch
+        ]
         
         _ = item.waitForExistence(timeout: 3.0)
         
@@ -42,9 +42,9 @@ struct MainPage: Screen {
     }
     
     private func textField3Focused() -> XCUIElement {
-        let item = app.staticTexts[
+        let item = app.descendants(matching: .any)[
             "\(AccessibilityIdentifiers.thirdField.focusId())"
-        ].firstMatch
+        ]
         
         _ = item.waitForExistence(timeout: 3.0)
         
@@ -54,9 +54,9 @@ struct MainPage: Screen {
     }
 
     private func textField4Focused() -> XCUIElement {
-        let item = app.staticTexts[
+        let item = app.descendants(matching: .any)[
             "\(AccessibilityIdentifiers.fourthField.focusId())"
-        ].firstMatch
+        ]
         
         _ = item.waitForExistence(timeout: 3.0)
         
@@ -66,8 +66,8 @@ struct MainPage: Screen {
     }
     
     private func setFieldButton3() -> XCUIElement {
-        let item = app.staticTexts[
-            "\(AccessibilityIdentifiers.thirdSetFieldButton.automatedId())"
+        let item = app.buttons[
+            "\(AccessibilityIdentifiers.thirdSetFieldButton)"
         ].firstMatch
         
         _ = item.waitForExistence(timeout: 3.0)
@@ -78,8 +78,8 @@ struct MainPage: Screen {
     }
     
     private func setFieldButton4() -> XCUIElement {
-        let item = app.staticTexts[
-            "\(AccessibilityIdentifiers.fourthSetFieldButton.automatedId())"
+        let item = app.buttons[
+            "\(AccessibilityIdentifiers.fourthSetFieldButton)"
         ].firstMatch
         
         _ = item.waitForExistence(timeout: 3.0)
