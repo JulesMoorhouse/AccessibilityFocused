@@ -19,7 +19,7 @@ struct MainPage: Screen {
     
     private func textField3() -> XCUIElement {
         let item = app.staticTexts[
-            "\(AccessibilityIdentifiers.thirdField.automatedId())"
+            "\(AccessibilityIdentifiers.thirdField)"
         ].firstMatch
         
         _ = item.waitForExistence(timeout: 3.0)
@@ -31,7 +31,7 @@ struct MainPage: Screen {
 
     private func textField4() -> XCUIElement {
         let item = app.staticTexts[
-            "\(AccessibilityIdentifiers.fourthField.automatedId())"
+            "\(AccessibilityIdentifiers.fourthField)"
         ].firstMatch
         
         _ = item.waitForExistence(timeout: 3.0)
