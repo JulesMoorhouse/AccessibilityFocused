@@ -33,8 +33,8 @@ struct AccessibilityFocusSetterModifier: ViewModifier {
             content: content
                 .accessibility(identifier: accessibilityIdentifier)
         )
-        //.onChange(of: focused) { _ in
-        .onReceive(Just(focused)) { focused in
+        .valueChanged(value: focused) { _ in
+        //.onReceive(Just(focused)) { focused in
             if focused == true {
                 #if targetEnvironment(simulator)
                     accessibilityIdentifier = identifier.uiTestFocusId
@@ -45,8 +45,8 @@ struct AccessibilityFocusSetterModifier: ViewModifier {
                 #endif
             }
         }
-        //.onChange(of: AccessibilityFocusSetterModifier.currentFocusIdentifier) { value in
-        .onReceive(Just(AccessibilityFocusSetterModifier.currentFocusIdentifier)) { value in
+        .valueChanged(value: AccessibilityFocusSetterModifier.currentFocusIdentifier) { value in
+        //.onReceive(Just(AccessibilityFocusSetterModifier.currentFocusIdentifier)) { value in
             if value != identifier.accessibilityId {
                 focused = false
             }
@@ -118,6 +118,19 @@ struct AccessibilityFocusSetterModifier: ViewModifier {
                     AccessibilityFocusSetterModifier.currentFocusIdentifier = identifier.accessibilityId
                     focused = false
                 }
+            }
+        }
+    }
+}
+
+fileprivate extension View {
+    /// A backwards compatible wrapper for iOS 14 `onChange`
+    @ViewBuilder func valueChanged<T: Equatable>(value: T, onChange: @escaping (T) -> Void) -> some View {
+        if #available(iOS 14.0, *) {
+            self.onChange(of: value, perform: onChange)
+        } else {
+            self.onReceive(Just(value)) { (value) in
+                onChange(value)
             }
         }
     }
