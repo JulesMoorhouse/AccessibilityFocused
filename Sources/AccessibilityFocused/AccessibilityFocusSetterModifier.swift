@@ -99,7 +99,7 @@ struct AccessibilityFocusSetterModifier: ViewModifier {
             }
             
             let view = UIView()
-            controller.view.frame = view.bounds
+          //  controller.view.frame = view.bounds
             view.addSubview(controller.view)
             
             NSLayoutConstraint.activate([
