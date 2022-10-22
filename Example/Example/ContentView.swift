@@ -60,7 +60,7 @@ struct ContentView: View {
             TextField("Text 3", text: $text3)
                 .foregroundColor(Color.secondary)
                 .padding()
-                .accessibilityAddTraits(.isStaticText)
+                .accessibility(addTraits: .isStaticText)
                 .accessibilityFocused(
                     $accessibilityFocus3,
                     identifier:
@@ -72,7 +72,7 @@ struct ContentView: View {
             TextField("Text 4", text: $text4)
                 .foregroundColor(Color.secondary)
                 .padding()
-                .accessibilityAddTraits(.isStaticText)
+                .accessibility(addTraits: .isStaticText)
                 .accessibilityFocused(
                     $accessibilityFocus4,
                     identifier:
@@ -88,8 +88,8 @@ struct ContentView: View {
                         accessibilityFocus3.toggle()
                     }
                 )
-                .accessibilityIdentifier(
-                    AccessibilityIdentifiers.thirdSetFieldButton.automatedId()
+                .accessibility(
+                    identifier: AccessibilityIdentifiers.thirdSetFieldButton.automatedId()
                 )
 
                 Spacer()
@@ -100,8 +100,8 @@ struct ContentView: View {
                         accessibilityFocus4.toggle()
                     }
                 )
-                .accessibilityIdentifier(
-                    AccessibilityIdentifiers.fourthSetFieldButton.automatedId()
+                .accessibility(
+                    identifier: AccessibilityIdentifiers.fourthSetFieldButton.automatedId()
                 )
             }
             
