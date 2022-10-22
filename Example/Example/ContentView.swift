@@ -21,7 +21,7 @@ struct ContentView: View {
 
     var body: some View {
         VStack(alignment: .center) {
-            Text("Remember accessibility focus only works on a physical devices with voice over turned on")
+            Text("Remember accessibility focus only works on physical devices with voice over turned on")
                 .multilineTextAlignment(.center)
 
             TextField("Text 1", text: $text1)
@@ -104,6 +104,8 @@ struct ContentView: View {
                     AccessibilityIdentifiers.fourthSetFieldButton.automatedId()
                 )
             }
+            
+            Spacer()
         }
         .padding(24)
     }
