@@ -525,7 +525,7 @@
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/JulesMoorhouse/AccessibilityFocused";
 			requirement = {
-				branch = main;
+				branch = "iOS13-support";
 				kind = branch;
 			};
 		};

@@ -5,8 +5,8 @@
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/JulesMoorhouse/AccessibilityFocused",
       "state" : {
-        "branch" : "main",
-        "revision" : "a057101816b54dad502ca8a02ed24b494b0a9f10"
+        "branch" : "iOS13-support",
+        "revision" : "38a20378fe05c84e4c53e84970012187aad48146"
       }
     }
   ],
