@@ -33,9 +33,9 @@ struct AccessibilityFocusSetterModifier: ViewModifier {
             content: content
                 .accessibility(identifier: accessibilityIdentifier)
         )
-        .valueChanged(value: focused) { _ in
+        .valueChanged(value: focused) { value in
         //.onReceive(Just(focused)) { focused in
-            if focused == true {
+            if value == true {
                 #if targetEnvironment(simulator)
                     accessibilityIdentifier = identifier.uiTestFocusId
 
