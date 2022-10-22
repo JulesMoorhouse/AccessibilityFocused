@@ -92,17 +92,17 @@ struct AccessibilityFocusSetterModifier: ViewModifier {
             let child = UIHostingController(rootView: content)
             child.view.translatesAutoresizingMaskIntoConstraints = false
             child.view.backgroundColor = .clear
-            child.view.frame = UIScreen.main.bounds
             context.coordinator.hostingController = child
-
+            
             if #available(iOS 14.0, *) {
                 return child.view
             }
             
-            let control = UIView()
-            control.frame = UIScreen.main.bounds
-            control.addSubview(child.view)
-            return control
+            let view = UIView()
+            child.view.frame = view.bounds
+            child.view.autoresizingMask = [.flexibleWidth, .flexibleHeight]
+            view.addSubview(child.view)
+            return view
         }
 
         func updateUIView(_ uiView: UIView, context: Context) {
