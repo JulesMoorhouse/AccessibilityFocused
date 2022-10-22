@@ -10,7 +10,6 @@ import SwiftUI
 
 struct AccessibilityFocusSetterModifier: ViewModifier {
     @Binding var focused: Bool
-    @State private var height: CGFloat = .zero
     @State private var accessibilityIdentifier: String = ""
 
     private let identifier: FocusIdentity
@@ -28,13 +27,11 @@ struct AccessibilityFocusSetterModifier: ViewModifier {
     func body(content: Content) -> some View {
         WrapperView(
             focused: $focused,
-            dynamicHeight: $height,
             identifier: identifier,
             content: content
                 .accessibility(identifier: accessibilityIdentifier)
         )
         .valueChanged(value: focused) { value in
-        //.onReceive(Just(focused)) { focused in
             if value == true {
                 #if targetEnvironment(simulator)
                     accessibilityIdentifier = identifier.uiTestFocusId
@@ -46,29 +43,23 @@ struct AccessibilityFocusSetterModifier: ViewModifier {
             }
         }
         .valueChanged(value: AccessibilityFocusSetterModifier.currentFocusIdentifier) { value in
-        //.onReceive(Just(AccessibilityFocusSetterModifier.currentFocusIdentifier)) { value in
             if value != identifier.accessibilityId {
                 focused = false
             }
         }
-        .frame(minHeight: height)
-        .fixedSize(horizontal: false, vertical: true)
     }
 
     private struct WrapperView<Content: View>: UIViewRepresentable {
         @Binding var focused: Bool
-        @Binding var dynamicHeight: CGFloat
 
         private let identifier: FocusIdentity
         private let content: Content
 
         init(
             focused: Binding<Bool>,
-            dynamicHeight: Binding<CGFloat>,
             identifier: FocusIdentity,
             content: Content
         ) {
-            _dynamicHeight = dynamicHeight
             _focused = focused
             self.identifier = identifier
             self.content = content
@@ -97,29 +88,25 @@ struct AccessibilityFocusSetterModifier: ViewModifier {
             if #available(iOS 14.0, *) {
                 return controller.view
             }
-            
+
             let view = UIView()
             view.addSubview(controller.view)
-            
-            NSLayoutConstraint.activate([
-                controller.view.topAnchor.constraint(equalTo: view.topAnchor),
-                controller.view.heightAnchor.constraint(equalTo: view.heightAnchor),
-             ])
-            
+
+            let constraints = [
+                view.leadingAnchor.constraint(equalTo: controller.view.leadingAnchor),
+                view.trailingAnchor.constraint(equalTo: controller.view.trailingAnchor),
+                view.topAnchor.constraint(equalTo: controller.view.topAnchor),
+                view.bottomAnchor.constraint(equalTo: controller.view.bottomAnchor),
+                view.widthAnchor.constraint(equalTo: controller.view.widthAnchor)
+            ]
+
+            view.addConstraints(constraints)
+
             return view
         }
 
         func updateUIView(_ uiView: UIView, context: Context) {
             context.coordinator.hostingController.rootView = content
-
-            DispatchQueue.main.async {
-                dynamicHeight = uiView.sizeThatFits(
-                    CGSize(
-                        width: uiView.bounds.width,
-                        height: CGFloat.greatestFiniteMagnitude
-                    )
-                ).height
-            }
 
             if focused {
                 DispatchQueue.main.async {
