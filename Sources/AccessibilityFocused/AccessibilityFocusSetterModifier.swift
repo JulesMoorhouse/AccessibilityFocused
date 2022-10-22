@@ -105,6 +105,8 @@ struct AccessibilityFocusSetterModifier: ViewModifier {
             NSLayoutConstraint.activate([
                  controller.view.topAnchor.constraint(equalTo: view.topAnchor),
                  controller.view.bottomAnchor.constraint(equalTo: view.bottomAnchor),
+                 controller.view.widthAnchor.constraint(equalTo: view.widthAnchor),
+                 controller.view.heightAnchor.constraint(equalTo: view.heightAnchor),
                  controller.view.leadingAnchor.constraint(equalTo: view.leadingAnchor),
                  controller.view.trailingAnchor.constraint(equalTo: view.trailingAnchor)
              ])
