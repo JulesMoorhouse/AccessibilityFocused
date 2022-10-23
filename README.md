@@ -15,16 +15,16 @@ dependencies: [
 ]
 ```
 
+> **⚠️ Note:** [AccessibilityFocused](https://developer.apple.com/documentation/swiftui/grid/accessibilityfocused(_:)) only works on a physical device, you must also turn on voice over.
+
 ## Usage:
 Import the package into the file with `import AccessibilityFocused`.
 
-> **⚠️ Note:** [AccessibilityFocused](https://developer.apple.com/documentation/swiftui/grid/accessibilityfocused(_:)) only works on a physical device, you must also turn on voice over.
+There are two different ways to use AccessibilityFocused, both need to set a AccessibilityIdentifier. This is required to provide a handle to indicate which field is being focused.
 
-There are two different ways to use AccessibilityFocused, however both need to set an AccessibilityIdentifier. This is required to provide a handle to indicate which field is being focused.
+Here's the most basic implementation, obviously you'd need another element to gave a different focus, with this being the only field. Notice that unlike the iOS 15 version of `accessibilityFocused` we use state as for the boolean value.
 
-Here's the most basic implementation, obviously you'd need another field to gave a different focus, with this being the only field. Notice that unlike the iOS 15 version of `accessibilityFocused` we use state as for the boolean value.
-
-So if you evet stop using this spm you would just drop state name.
+So if you ever stop using this spm you would just need drop the state name.
 
 ```
 import AccessibilityFocused
