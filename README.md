@@ -2,8 +2,6 @@
 
 [![GitHub license](https://img.shields.io/badge/license-MIT-lightgrey.svg)](https://raw.githubusercontent.com/JulesMoorhouse/AccessibilityFocused/main/LICENSE)
 
-A description of this package.
-
 A SwiftUI implementation of the iOS 15 AccessibilityFocused view modifier for iOS 14.
 
 ## Installation
