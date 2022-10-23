@@ -18,6 +18,8 @@ dependencies: [
 ## Usage:
 Import the package into the file with `import AccessibilityFocused`.
 
+> **⚠️ Note:** [AccessibilityFocused](https://developer.apple.com/documentation/swiftui/grid/accessibilityfocused(_:)) only works on a physical device, you must also turn on voice over.
+
 There are two different ways to use AccessibilityFocused, however both need to set an AccessibilityIdentifier. This is required to provide a handle to indicate which field is being focused.
 
 Here's the most basic implementation, obviously you'd need another field to gave a different focus, with this being the only field. Notice that unlike the iOS 15 version of `accessibilityFocused` we use state as for the boolean value.
@@ -40,5 +42,19 @@ struct ContentView: View {
 }
 ```
 
-A more complex example, allowing you to UI Test this functionality is shown below. Although the iOS simulator doesn't show accessibility focus, as workaround, just for UI Testing, the SPM changes the accessibility identifier when focus is set.
+A more complex example, allowing you to UI Test this functionality is shown in the example project. Although the iOS simulator doesn't show accessibility focus, as workaround, just for UI Testing, the SPM changes the accessibility identifier when focus is set.
 
+### Requirements
+
+- iOS 14.0+
+
+## iOS 13
+I tried to provide iOS 13 support, in fact you can see a `iOS13-Support` branch, which has issues. In `AccessibilityFocusSetterModifier.swift` the `makeUIView` method, the return controller.view freezes the iOS simulator. I have tried to wrap the view in a UIView, however there are sizing issues and you can not select the text in the textfield. I'd be happy for any help on this.
+
+## :clap: Contribution
+
+All Pull Requests (PRs) are welcome to help make this library better.
+
+## License
+
+AccessibilityFocused is available under the MIT license. See the [LICENSE](https://github.com/JulesMoorhouse/AccessibilityFocused/blob/main/LICENSE) file for more info.
