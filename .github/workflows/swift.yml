@@ -20,8 +20,6 @@ jobs:
 
     steps:
     - uses: actions/checkout@v3
-    - name: Build
-      run: swift build -v -Xswiftc "-sdk" -Xswiftc "`xcrun --sdk iphonesimulator --show-sdk-path`" -Xswiftc "-target" -Xswiftc "x86_64-apple-ios14.0-simulator"
-
-    - name: Run tests
-      run: swift test -v -Xswiftc "-sdk" -Xswiftc "`xcrun --sdk iphonesimulator --show-sdk-path`" -Xswiftc "-target" -Xswiftc "x86_64-apple-ios14.0-simulator"
+    - name: Build and Test
+      run: |
+        xcodebuild clean build analyze test -scheme AccessibilityFocused -sdk iphonesimulator -destination 'platform=iOS Simulator,name=iPhone 11'
