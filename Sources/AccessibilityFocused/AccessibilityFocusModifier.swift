@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-@available(iOS 15, *)
+@available(tvOS, unavailable) @available(macOS, unavailable) @available(iOS 15, *)
 struct AccessibilityFocusModifier: ViewModifier {
     @Binding var state: Bool
     @State private var accessibilityIdentifier: String = ""
