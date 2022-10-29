@@ -8,6 +8,7 @@
 import Combine
 import SwiftUI
 
+@available(tvOS, unavailable) @available(macOS, unavailable) @available(iOS 14, *)
 struct AccessibilityFocusSetterModifier: ViewModifier {
     @Binding var focused: Bool
     @State private var height: CGFloat = .zero

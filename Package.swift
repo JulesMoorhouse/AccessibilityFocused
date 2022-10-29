@@ -5,6 +5,7 @@ import PackageDescription
 
 let package = Package(
     name: "AccessibilityFocused",
+    defaultLocalization: "en",
     platforms: [
         .iOS(.v13)
     ],
@@ -23,9 +24,15 @@ let package = Package(
         // Targets can depend on other targets in this package, and on products in packages this package depends on.
         .target(
             name: "AccessibilityFocused",
-            dependencies: []),
+            dependencies: [],
+            exclude: [
+                "Example"
+            ]),
         .testTarget(
             name: "AccessibilityFocusedTests",
-            dependencies: ["AccessibilityFocused"]),
+            dependencies: ["AccessibilityFocused"],
+            exclude: [
+                "Example"
+            ]),
     ]
 )
