@@ -9,6 +9,7 @@ import SwiftUI
 
 public typealias FocusIdentity = (accessibilityId: String, uiTestFocusId: String)
 
+@available(tvOS, unavailable) @available(macOS, unavailable) @available(iOS 14, *)
 public extension View {
     @ViewBuilder func accessibilityFocused(
         _ state: Binding<Bool>,
