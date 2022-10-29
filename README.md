@@ -1,6 +1,6 @@
 # AccessibilityFocused
 
-[![Swift](https://github.com/JulesMoorhouse/AccessibilityFocused/actions/workflows/swift.yml/badge.svg?branch=main)](https://github.com/JulesMoorhouse/AccessibilityFocused/actions/workflows/swift.yml) [![GitHub license](https://img.shields.io/badge/license-MIT-lightgrey.svg)](https://raw.githubusercontent.com/JulesMoorhouse/AccessibilityFocused/main/LICENSE)
+[![Swift](https://github.com/JulesMoorhouse/AccessibilityFocused/actions/workflows/swift.yml/badge.svg?branch=main)](https://github.com/JulesMoorhouse/AccessibilityFocused/actions/workflows/swift.yml) [![GitHub license](https://img.shields.io/badge/license-MIT-lightgrey.svg)](https://raw.githubusercontent.com/JulesMoorhouse/AccessibilityFocused/main/LICENSE) [![](https://img.shields.io/endpoint?url=https%3A%2F%2Fswiftpackageindex.com%2Fapi%2Fpackages%2FJulesMoorhouse%2FAccessibilityFocused%2Fbadge%3Ftype%3Dswift-versions)](https://swiftpackageindex.com/JulesMoorhouse/AccessibilityFocused) [![](https://img.shields.io/endpoint?url=https%3A%2F%2Fswiftpackageindex.com%2Fapi%2Fpackages%2FJulesMoorhouse%2FAccessibilityFocused%2Fbadge%3Ftype%3Dplatforms)](https://swiftpackageindex.com/JulesMoorhouse/AccessibilityFocused)
 
 A SwiftUI implementation of the iOS 15 AccessibilityFocused view modifier for iOS 14.
 
